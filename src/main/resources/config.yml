@@ -1,0 +1,4 @@
+bindAddress: '0.0.0.0'
+bindPort: 19132
+maxPlayers: -1
+motd: "\u00a7aServerCobweb server"

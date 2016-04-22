@@ -4,8 +4,9 @@ import cn.nukkit.raknet.RakNet;
 import cn.nukkit.raknet.protocol.EncapsulatedPacket;
 import cn.nukkit.raknet.protocol.Packet;
 import cn.nukkit.raknet.protocol.packet.*;
-import cn.nukkit.utils.Binary;
-import cn.nukkit.utils.ThreadedLogger;
+import com.mrgenga.servercobweb.utils.*;
+
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -61,7 +62,7 @@ public class SessionManager {
         return this.server.port;
     }
 
-    public ThreadedLogger getLogger() {
+    public Logger getLogger() {
         return this.server.getLogger();
     }
 
@@ -128,7 +129,7 @@ public class SessionManager {
                     long timeout = this.block.get(address);
                     if (timeout <= now) {
                         this.block.remove(address);
-                        this.getLogger().notice("Unblocked " + address);
+                        this.getLogger().info("Unblocked " + address);
                     } else {
                         break;
                     }
@@ -395,7 +396,7 @@ public class SessionManager {
             if (timeout == -1) {
                 finalTime = Long.MAX_VALUE;
             } else {
-                this.getLogger().notice("Blocked " + address + " for " + timeout + " seconds");
+                this.getLogger().info("Blocked " + address + " for " + timeout + " seconds");
             }
             this.block.put(address, finalTime);
         } else if (this.block.get(address) < finalTime) {

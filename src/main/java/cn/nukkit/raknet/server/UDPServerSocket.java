@@ -1,6 +1,6 @@
 package cn.nukkit.raknet.server;
 
-import cn.nukkit.utils.ThreadedLogger;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -18,18 +18,18 @@ import java.util.Arrays;
 public class UDPServerSocket {
 
     protected DatagramChannel channel;
-    protected ThreadedLogger logger;
+    protected Logger logger;
     protected DatagramSocket socket;
 
-    public UDPServerSocket(ThreadedLogger logger) {
+    public UDPServerSocket(Logger logger) {
         this(logger, 19132, "0.0.0.0");
     }
 
-    public UDPServerSocket(ThreadedLogger logger, int port) {
+    public UDPServerSocket(Logger logger, int port) {
         this(logger, port, "0.0.0.0");
     }
 
-    public UDPServerSocket(ThreadedLogger logger, int port, String interfaz) {
+    public UDPServerSocket(Logger logger, int port, String interfaz) {
         this.logger = logger;
         try {
             this.channel = DatagramChannel.open();
@@ -40,8 +40,8 @@ public class UDPServerSocket {
             this.socket.setReuseAddress(true);
             this.setSendBuffer(1024 * 1024 * 8).setRecvBuffer(1024 * 1024 * 8);
         } catch (IOException e) {
-            this.logger.critical("**** FAILED TO BIND TO " + interfaz + ":" + port + "!");
-            this.logger.critical("Perhaps a server is already running on that port?");
+            this.logger.warn("**** FAILED TO BIND TO " + interfaz + ":" + port + "!");
+            this.logger.warn("Perhaps a server is already running on that port?");
             System.exit(1);
         }
     }

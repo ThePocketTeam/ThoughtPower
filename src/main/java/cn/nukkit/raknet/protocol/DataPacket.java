@@ -1,6 +1,6 @@
 package cn.nukkit.raknet.protocol;
 
-import cn.nukkit.utils.Binary;
+import com.mrgenga.servercobweb.utils.*;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 
