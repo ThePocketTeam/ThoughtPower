@@ -48,7 +48,7 @@ public class Server implements Runnable{
     }
 
     public Integer getMaxPlayers(){
-        return (Integer) config.get("maxPlayersCount");
+        return (Integer) config.get("maxPlayers");
     }
 
     public Map<String, Player> getOnlinePlayers(){
