@@ -90,7 +90,9 @@ public class Server implements Runnable{
     public Server(){
         instance = this;
         logger = LogManager.getLogger("ServerCobweb");
+        logger.info("Starting up...");
         yml = new Yaml();
+        logger.info("Loading config.yml...");
         try{
             checkConfig();
         }catch(IOException e){
@@ -105,7 +107,8 @@ public class Server implements Runnable{
 
     @Override
     public void run(){
-        Thread.currentThread().setName("ServerCobweb");
+        Thread.currentThread().setName("Proxy");
+        logger.info("Starting server on "+this.getIp()+":"+this.getPort()+"...");
         interfaz = new RakNetInterface(this);
         logger.info("Server started!");
         while(true) interfaz.process();
