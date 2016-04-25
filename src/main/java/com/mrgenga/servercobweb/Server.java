@@ -111,7 +111,10 @@ public class Server implements Runnable{
         logger.info("Starting server on "+this.getIp()+":"+this.getPort()+"...");
         interfaz = new RakNetInterface(this);
         logger.info("Server started!");
-        while(true) interfaz.process();
+        while(true){
+            interfaz.process();
+            for(Player p : this.players.values()) p.getConnection().tick();
+        }
     }
 
 }

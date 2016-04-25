@@ -18,13 +18,33 @@ public class CLIENT_HANDSHAKE_DataPacket extends Packet {
 
     public String address;
     public int port;
-    public InetSocketAddress[] systemAddresses = new InetSocketAddress[10];
+    public InetSocketAddress[] systemAddresses = new InetSocketAddress[]{
+            new InetSocketAddress("127.0.0.1", 0),
+            new InetSocketAddress("0.0.0.0", 0),
+            new InetSocketAddress("0.0.0.0", 0),
+            new InetSocketAddress("0.0.0.0", 0),
+            new InetSocketAddress("0.0.0.0", 0),
+            new InetSocketAddress("0.0.0.0", 0),
+            new InetSocketAddress("0.0.0.0", 0),
+            new InetSocketAddress("0.0.0.0", 0),
+            new InetSocketAddress("0.0.0.0", 0),
+            new InetSocketAddress("0.0.0.0", 0)
+    };
 
     public long sendPing;
     public long sendPong;
 
     @Override
     public void encode() {
+        super.encode();
+        this.putAddress(new InetSocketAddress(this.address, this.port));
+
+        for(InetSocketAddress a : systemAddresses){
+            this.putAddress(a);
+        }
+
+        this.putLong(this.sendPing);
+        this.putLong(this.sendPong);
     }
 
     @Override
