@@ -99,18 +99,20 @@ public class RakNetConnection extends UDPServerSocket{
     public Packet receivePacket(){
         byte[] buffer = this.readPacket(this.ip, this.port);
         if (buffer != null) {
-            Packet packet = new BufferPacket();
-            if ((packet = StaticPacketPool.getPacketFromPool(buffer[0])) != null) {
-                packet.buffer = buffer;
-                packet.decode();
-                if (packet instanceof DataPacket) {
-                    DataPacket pk = (DataPacket) packet;
-                    this.ackQueue.put(pk.seqNumber, pk.seqNumber);
+            try{
+                Packet packet = new BufferPacket();
+                if ((packet = StaticPacketPool.getPacketFromPool(buffer[0])) != null) {
+                    packet.buffer = buffer;
+                    packet.decode();
+                    if (packet instanceof DataPacket) {
+                        DataPacket pk = (DataPacket) packet;
+                        this.ackQueue.put(pk.seqNumber, pk.seqNumber);
+                    }
+                    return packet;
                 }
+                packet.buffer = buffer;
                 return packet;
-            }
-            packet.buffer = buffer;
-            return packet;
+            } catch(NullPointerException e){ return null; }
         }
         else{
             return null;
