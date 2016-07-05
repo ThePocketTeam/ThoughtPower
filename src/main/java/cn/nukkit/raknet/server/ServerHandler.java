@@ -2,7 +2,7 @@ package cn.nukkit.raknet.server;
 
 import cn.nukkit.raknet.RakNet;
 import cn.nukkit.raknet.protocol.EncapsulatedPacket;
-import com.mrgenga.servercobweb.utils.*;
+import io.github.thoughtpower.utils.*;
 
 import java.nio.charset.StandardCharsets;
 

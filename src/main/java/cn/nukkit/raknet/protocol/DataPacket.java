@@ -1,6 +1,6 @@
 package cn.nukkit.raknet.protocol;
 
-import com.mrgenga.servercobweb.utils.*;
+import io.github.thoughtpower.utils.*;
 
 import java.util.concurrent.ConcurrentLinkedQueue;
 

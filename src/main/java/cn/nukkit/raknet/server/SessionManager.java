@@ -4,7 +4,7 @@ import cn.nukkit.raknet.RakNet;
 import cn.nukkit.raknet.protocol.EncapsulatedPacket;
 import cn.nukkit.raknet.protocol.Packet;
 import cn.nukkit.raknet.protocol.packet.*;
-import com.mrgenga.servercobweb.utils.*;
+import io.github.thoughtpower.utils.*;
 
 import org.apache.logging.log4j.Logger;
 
