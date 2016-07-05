@@ -2,8 +2,8 @@ package io.github.thoughtpower;
 
 public class ThoughtPower implements Runnable {
 
-    public final static Integer CURRENT_PROTOCOL = 45;
-    public final static String MINECRAFT_VERSION = "0.14.0";
+    public final static Integer CURRENT_PROTOCOL = 81;
+    public final static String MINECRAFT_VERSION = "0.15.1";
 
     public static void main(String[] args){
         (new ThoughtPower()).run();

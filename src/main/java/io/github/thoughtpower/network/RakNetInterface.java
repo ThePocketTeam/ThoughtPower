@@ -150,8 +150,8 @@ public class RakNetInterface implements ServerInstance, AdvancedSourceInterface 
     public void setName(String name) {
         this.handler.sendOption("name",
                 "MCPE;" + name.replace(";", "\\;") + ";" +
-                        ServerCobweb.CURRENT_PROTOCOL + ";" +
-                        ServerCobweb.MINECRAFT_VERSION + ";" +
+                        ThoughtPower.CURRENT_PROTOCOL + ";" +
+                        ThoughtPower.MINECRAFT_VERSION + ";" +
                         this.server.getOnlinePlayers().size() + ";" +
                         this.server.getMaxPlayers());
     }
