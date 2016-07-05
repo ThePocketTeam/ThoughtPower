@@ -1,6 +1,6 @@
-package com.mrgenga.servercobweb.network;
+package io.github.thoughtpower.network;
 
-import com.mrgenga.servercobweb.Player;
+import io.github.thoughtpower.Player;
 
 
 /**

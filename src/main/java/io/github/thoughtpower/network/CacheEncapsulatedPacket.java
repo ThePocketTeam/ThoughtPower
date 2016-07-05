@@ -1,4 +1,4 @@
-package com.mrgenga.servercobweb.network;
+package io.github.thoughtpower.network;
 
 import cn.nukkit.raknet.protocol.EncapsulatedPacket;
 

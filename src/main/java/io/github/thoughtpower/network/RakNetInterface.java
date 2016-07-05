@@ -1,8 +1,7 @@
-package com.mrgenga.servercobweb.network;
+package io.github.thoughtpower.network;
 
-import com.mrgenga.servercobweb.*;
-import com.mrgenga.servercobweb.utils.*;
-import com.mrgenga.servercobweb.Player;
+import io.github.thoughtpower.*;
+import io.github.thoughtpower.utils.*;
 
 import cn.nukkit.raknet.RakNet;
 import cn.nukkit.raknet.protocol.EncapsulatedPacket;

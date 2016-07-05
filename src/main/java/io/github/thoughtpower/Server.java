@@ -1,6 +1,6 @@
-package com.mrgenga.servercobweb;
+package io.github.thoughtpower;
 
-import com.mrgenga.servercobweb.network.RakNetInterface;
+import io.github.thoughtpower.network.RakNetInterface;
 
 import org.apache.logging.log4j.*;
 import org.yaml.snakeyaml.Yaml;
@@ -47,6 +47,10 @@ public class Server implements Runnable{
         return (Integer) config.get("bindPort");
     }
 
+    public Integer getPowerPort(){
+        return (Integer) config.get("powerPort");
+    }
+
     public Integer getMaxPlayers(){
         return (Integer) config.get("maxPlayers");
     }
@@ -89,7 +93,7 @@ public class Server implements Runnable{
 
     public Server(){
         instance = this;
-        logger = LogManager.getLogger("ServerCobweb");
+        logger = LogManager.getLogger("ThoughtPower");
         logger.info("Starting up...");
         yml = new Yaml();
         logger.info("Loading config.yml...");
@@ -113,7 +117,6 @@ public class Server implements Runnable{
         logger.info("Server started!");
         while(true){
             interfaz.process();
-            for(Player p : this.players.values()) p.getConnection().tick();
         }
     }
 

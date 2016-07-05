@@ -1,11 +1,10 @@
-package com.mrgenga.servercobweb;
+package io.github.thoughtpower;
 
-import com.mrgenga.servercobweb.network.*;
+import io.github.thoughtpower.network.*;
 
 public class Player{
 
     private RakNetInterface interfaz;
-    private RakNetConnection connection;
     private long clientID;
     private String address;
     private int port;
@@ -17,11 +16,6 @@ public class Player{
         this.address = address;
         this.port = port;
         this.server = Server.getInstance();
-        this.connection = new RakNetConnection(this, (String)this.server.getConfig().get("remoteAddress"), (Integer)this.server.getConfig().get("remotePort"));
-    }
-
-    public RakNetConnection getConnection(){
-        return this.connection;
     }
 
     public Server getServer(){

@@ -1,4 +1,4 @@
-package com.mrgenga.servercobweb.utils;
+package io.github.thoughtpower.utils;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
